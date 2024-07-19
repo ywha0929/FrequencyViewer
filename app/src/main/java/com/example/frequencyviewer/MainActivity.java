@@ -34,7 +34,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class MainActivity extends AppCompatActivity {
     private final String TAG = "FrequencyViewer MainActivity";
     AudioTrack mAudioTrack;
-    int samplingRate = 192000;
+    int samplingRate = 44100;
     boolean isPlay;
     Thread thread;
     Thread converter;
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
                                 PyObject textOutputStream = io.callAttr("StringIO");
                                 sys.put("stdout", textOutputStream);
 
-                                int interval = (Recorder.SAMPLE_RATE/100) * 2;
+                                int interval = (Recorder.SAMPLE_RATE/10) * 2;
                                 short[] left = new short[interval];
                                 short[] right = new short[interval];
 
